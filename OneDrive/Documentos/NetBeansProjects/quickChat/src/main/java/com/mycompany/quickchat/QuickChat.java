@@ -73,6 +73,38 @@ class userRegistrationAndLogin
             return false;
         }
     }
+    
+    //Creating a method to register the user
+    String registerUser()
+    {
+       System.out.println("\n ========UserRegistration=======");
+       
+       //The following lines of code are prompting the user to enter user info using a scanner
+       System.out.println("Enter your username, username should be no more than five characters and should contain an underscore.");
+       String userName = userInput.nextLine();
+       
+       System.out.println("Enter the password, password should at least be eight characters long and contain a capital letter, contain a number and a special character.");
+       String password = userInput.nextLine();
+       
+       System.out.println("Enter cell phone number, cell phone number should contain country code and ten digits.");
+       String cellPhoneNumber = userInput.nextLine();
+       
+       //Using a conditional statement to verify if the user's input matches the conditions set out on the username,password and phonenumber methods
+       if ( checkUserName(userName) && checkPasswordComplexity(password) && checkcellPhoneNumber(cellPhoneNumber) )
+           
+       { 
+           storeduserName = userName;
+           storedpassword = password;
+           storedcellPhoneNumber = cellPhoneNumber;
+           
+           return "The above conditions have been met, user has been registered successfully";
+       }
+       
+       else
+       {
+           return "Invalid details please try again";
+       }
+    }
 
 public class QuickChat {
 
