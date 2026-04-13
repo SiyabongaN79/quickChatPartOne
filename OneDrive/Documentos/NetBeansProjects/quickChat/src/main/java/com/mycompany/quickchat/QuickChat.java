@@ -132,6 +132,34 @@ class userRegistrationAndLogin
             return false;
          
     }
+    
+      //Creating a string method to return the login status
+    
+    String returnLoginStatus()
+    {
+     
+        //Prompting the user to enter their full name so i can display their full name with the log in status
+        System.out.print("Enter your first name: ");
+        String userFirstName = userInput.nextLine();
+        
+        System.out.print("Enter your Last name: ");
+        String userLastName = userInput.nextLine();
+       
+        //Creating a condition to validate the login status using isLoggedIn from the login page as a condition
+      if (isLoggedIn)
+      {
+          return "Welcome " + userFirstName + " " + userLastName + " it is great to see you again.";
+      }
+       else
+      {
+          return "Username or password incorrect, please try again.";
+      }
+        
+         
+    }
+    
+
+}
 
 public class QuickChat {
 
