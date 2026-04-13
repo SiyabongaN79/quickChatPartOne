@@ -55,6 +55,24 @@ class userRegistrationAndLogin
             return false;
         }
     }
+    
+     //Creating a boolean to validate user's cell phone number
+    boolean checkcellPhoneNumber(String cellPhoneNumber)
+    {
+        //Using a conditional statement to validate the user's phone number
+        if (cellPhoneNumber.matches("^\\+[2][7][0-9]{9}$"))
+        {
+            System.out.println("Cell phone number successfully added.");
+            
+            return true;
+        }
+        else
+        {
+            System.out.println("Cell phone number incorrectly formatted or does not contain international code");
+            
+            return false;
+        }
+    }
 
 public class QuickChat {
 
