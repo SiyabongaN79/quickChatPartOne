@@ -35,6 +35,26 @@ class userRegistrationAndLogin
         }
         
     }
+   
+    //Creating a boolean method to validate user password
+    boolean checkPasswordComplexity(String password)
+    {
+        //Using a conditional statement to validate the user's password
+        if (password.matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$"))
+            
+        { 
+            System.out.println("Password successfully captured.");
+        
+           return true;
+        }
+        else
+        {
+            System.out.print("Password is not correctly formatted; please ensure that password");
+            System.out.print(" contains atleast eight characters, a capital letter, a number and a special character.");
+            
+            return false;
+        }
+    }
 
 public class QuickChat {
 
