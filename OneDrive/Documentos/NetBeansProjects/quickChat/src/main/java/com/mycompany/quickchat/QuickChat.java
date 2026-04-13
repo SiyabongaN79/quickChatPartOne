@@ -20,14 +20,16 @@ class userRegistrationAndLogin
    public boolean checkUserName(String userName)
     {
         //Using a conditional statement to validate the user's username
-        if (userName.length()== 5 && userName.contains("_"))
+        if (userName.length()<= 5 && userName.contains("_"))
         {
+            //Alerting the user that they have successfully captured their username if the condition for the username is met
             System.out.println("Username successfully captured.");
             
               return true;
         }
         else
         {
+            //Otherwise the system will make the user aware if their username format does not match the condition for the username
             System.out.print("User name is not correctly formatted; ");
             System.out.print("please ensure that the username contains an underscore and is no more than five characters in length. ");
            
@@ -37,7 +39,7 @@ class userRegistrationAndLogin
     }
    
     //Creating a boolean method to validate user password
-    boolean checkPasswordComplexity(String password)
+    public boolean checkPasswordComplexity(String password)
     {
         //Using a conditional statement to validate the user's password
         if (password.matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$"))
@@ -57,7 +59,7 @@ class userRegistrationAndLogin
     }
     
      //Creating a boolean to validate user's cell phone number
-    boolean checkcellPhoneNumber(String cellPhoneNumber)
+    public boolean checkcellPhoneNumber(String cellPhoneNumber)
     {
         //Using a conditional statement to validate the user's phone number
         if (cellPhoneNumber.matches("^\\+[2][7][0-9]{9}$"))
@@ -126,6 +128,7 @@ class userRegistrationAndLogin
        if (storeduserName.equals(userName) && storedpassword.equals(password) && storedcellPhoneNumber.equals(cellPhoneNumber))
         {
             isLoggedIn = true;
+            System.out.println("You have logged in successfully");
             return true;
         }
         else
@@ -163,7 +166,58 @@ class userRegistrationAndLogin
 
 public class QuickChat {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+          //Creating a scanner for the user to select an option from the menu page
+        Scanner enterMenu = new Scanner(System.in);
+        
+        userRegistrationAndLogin chattingApp = new userRegistrationAndLogin();
+        
+        int choice;
+        
+        //Using a do while loop to repeatedly ask the user to choose an option on the menu page
+        do
+        {
+            System.out.println("\n=======MENU======");
+            System.out.println("1. Register");
+            System.out.println("2. Login");
+            System.out.println("3. Login Status");
+            System.out.println("4.Exit");
+            
+            System.out.println("Enter menu options");
+            
+            choice = enterMenu.nextInt();
+            
+            //Using a switch statement to give the user multiple options to choose from on the menu page
+            switch(choice)
+            {
+                case 1:
+                    chattingApp.registerUser();
+                   break;
+                   
+                case 2:
+                     chattingApp.LoginUser();
+                     break;
+                     
+                case 3:
+                     System.out.println(chattingApp.returnLoginStatus());
+                     break;
+                     
+                case 4:
+                    System.out.println("You have exited the menu page, goodbye");
+                    break;
+                    
+                default:
+                    System.out.println("You have entered an invalid option, please try again.");
+                          
+            }
+        
+        }
+        //The menu page closes if the user chooses option 4  
+        while(choice != 4);
+         {
+            enterMenu.close();
+         }
     
     }
 }
