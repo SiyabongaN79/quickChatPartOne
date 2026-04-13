@@ -105,6 +105,33 @@ class userRegistrationAndLogin
            return "Invalid details please try again";
        }
     }
+    
+     //Creating a boolean to verify the log in details entered match the log in details stored when the user registers.
+    boolean LoginUser()
+    {
+       System.out.println("\n ========UserLogin=======");
+        
+       System.out.println("Enter your username, username should be no more than five characters and should contain an underscore.");
+       String userName = userInput.nextLine();
+       
+       System.out.println("Enter the password, password should at least be eight characters long and contain a capital letter, contain a number and a special character.");
+       String password = userInput.nextLine();
+       
+       System.out.println("Enter cell phone number, cell phone number should contain country code and ten digits.");
+       String cellPhoneNumber = userInput.nextLine();
+        
+       
+       
+       
+       if (storeduserName.equals(userName) && storedpassword.equals(password) && storedcellPhoneNumber.equals(cellPhoneNumber))
+        {
+            isLoggedIn = true;
+            return true;
+        }
+        else
+            return false;
+         
+    }
 
 public class QuickChat {
 
